@@ -12,10 +12,7 @@ namespace Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var stringConexao = ConfigurationManager.ConnectionStrings["SqlServer"].ConnectionString;
-
-            optionsBuilder.UseSqlServer(stringConexao);
-            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=DesafioTecnico;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
     }
 }

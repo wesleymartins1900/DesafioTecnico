@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
 using Data.Entities;
+using DesafioTecnico.Validators;
 using Domain;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services;
-using Services.Validators;
 using System;
 using System.Threading.Tasks;
 
 namespace DesafioTecnico.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class FilmeController : ControllerBase

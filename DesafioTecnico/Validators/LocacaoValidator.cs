@@ -1,8 +1,9 @@
 ﻿using Data.Entities;
 using Domain;
 using FluentValidation;
+using Services;
 
-namespace Services.Validators
+namespace DesafioTecnico.Validators
 {
     public class LocacaoValidator : AbstractValidator<LocacaoDto>
     {

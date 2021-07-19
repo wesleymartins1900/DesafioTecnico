@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class FilmeServices : IFilmeServices
+    public class FilmeServices
     {
         public readonly BaseRepository<Filme> _repositorio;
 

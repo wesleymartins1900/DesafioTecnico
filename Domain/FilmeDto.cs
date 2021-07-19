@@ -2,7 +2,7 @@
 
 namespace Domain
 {
-    public class FilmeDto : BaseDto
+    public class FilmeDto
     {
         public string Nome { get; set; }
         public DateTime? DataDeCriacao { get; set; }

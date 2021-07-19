@@ -2,7 +2,7 @@
 
 namespace Domain
 {
-    public class GeneroDto : BaseDto
+    public class GeneroDto
     {
         public string Nome { get; set; }
         public DateTime? DataDeCriacao { get; set; }
