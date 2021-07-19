@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ua6N7s6Cn/4NxQTiBPqOdW8E9CcWe00H75UaPSsESN87krmZP/xCf/xGDIl8RXR1OUhoJ8icarOGirndm0/G7g==",
+  "success": true,
+  "projectFilePath": "C:\\Development\\DesafioTecnico\\Security\\Security.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\BOTÃO POWER\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\BOTÃO POWER\\.nuget\\packages\\microsoft.identitymodel.logging\\6.11.1\\microsoft.identitymodel.logging.6.11.1.nupkg.sha512",
+    "C:\\Users\\BOTÃO POWER\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.11.1\\microsoft.identitymodel.tokens.6.11.1.nupkg.sha512",
+    "C:\\Users\\BOTÃO POWER\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

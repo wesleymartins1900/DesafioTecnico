@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\BOTÃO POWER\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\BOTÃO POWER\\.nuget\\packages"
+    ]
+  }
+}

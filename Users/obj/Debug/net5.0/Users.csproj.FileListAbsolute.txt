@@ -1,0 +1,12 @@
+C:\Development\DesafioTecnico\Users\bin\Debug\net5.0\Users.deps.json
+C:\Development\DesafioTecnico\Users\bin\Debug\net5.0\Users.dll
+C:\Development\DesafioTecnico\Users\bin\Debug\net5.0\ref\Users.dll
+C:\Development\DesafioTecnico\Users\bin\Debug\net5.0\Users.pdb
+C:\Development\DesafioTecnico\Users\obj\Debug\net5.0\Users.csprojAssemblyReference.cache
+C:\Development\DesafioTecnico\Users\obj\Debug\net5.0\Users.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\DesafioTecnico\Users\obj\Debug\net5.0\Users.AssemblyInfoInputs.cache
+C:\Development\DesafioTecnico\Users\obj\Debug\net5.0\Users.AssemblyInfo.cs
+C:\Development\DesafioTecnico\Users\obj\Debug\net5.0\Users.csproj.CoreCompileInputs.cache
+C:\Development\DesafioTecnico\Users\obj\Debug\net5.0\Users.dll
+C:\Development\DesafioTecnico\Users\obj\Debug\net5.0\ref\Users.dll
+C:\Development\DesafioTecnico\Users\obj\Debug\net5.0\Users.pdb

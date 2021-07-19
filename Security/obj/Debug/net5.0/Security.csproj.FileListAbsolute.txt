@@ -1,0 +1,12 @@
+C:\Development\DesafioTecnico\Security\bin\Debug\net5.0\Security.deps.json
+C:\Development\DesafioTecnico\Security\bin\Debug\net5.0\Security.dll
+C:\Development\DesafioTecnico\Security\bin\Debug\net5.0\ref\Security.dll
+C:\Development\DesafioTecnico\Security\bin\Debug\net5.0\Security.pdb
+C:\Development\DesafioTecnico\Security\obj\Debug\net5.0\Security.csprojAssemblyReference.cache
+C:\Development\DesafioTecnico\Security\obj\Debug\net5.0\Security.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\DesafioTecnico\Security\obj\Debug\net5.0\Security.AssemblyInfoInputs.cache
+C:\Development\DesafioTecnico\Security\obj\Debug\net5.0\Security.AssemblyInfo.cs
+C:\Development\DesafioTecnico\Security\obj\Debug\net5.0\Security.csproj.CoreCompileInputs.cache
+C:\Development\DesafioTecnico\Security\obj\Debug\net5.0\Security.dll
+C:\Development\DesafioTecnico\Security\obj\Debug\net5.0\ref\Security.dll
+C:\Development\DesafioTecnico\Security\obj\Debug\net5.0\Security.pdb
