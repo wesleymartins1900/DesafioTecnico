@@ -6,7 +6,7 @@ Segurança:
 
 Especificações Ténicas:
 - EntityFrameworkCore;
-- Camada de Segurança precisa de ajustes;
+- Camada de Segurança incompleta;
 - Banco de dados SQL Server Local DB;
 - CRUD Listar, Cadastrar, Editar, Remover;
 - Back-end C# / .NET 5;
