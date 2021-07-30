@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Users
 {
-    public class UsersConfiguration : IEntityTypeConfiguration<IdentityUser>
+    public class UsersConfiguration : IEntityTypeConfiguration<Usuario>
     {
-        public void Configure(EntityTypeBuilder<IdentityUser> builder)
+        public void Configure(EntityTypeBuilder<Usuario> builder)
         => builder
             .HasData(new IdentityUser()
             {

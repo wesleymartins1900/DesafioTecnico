@@ -1,0 +1,7 @@
+C:\Development\DesafioTecnico\DesafioTecnico\obj\Debug\net5.0\WebAPI.csprojAssemblyReference.cache
+C:\Development\DesafioTecnico\DesafioTecnico\obj\Debug\net5.0\WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\DesafioTecnico\DesafioTecnico\obj\Debug\net5.0\WebAPI.AssemblyInfoInputs.cache
+C:\Development\DesafioTecnico\DesafioTecnico\obj\Debug\net5.0\WebAPI.AssemblyInfo.cs
+C:\Development\DesafioTecnico\DesafioTecnico\obj\Debug\net5.0\WebAPI.csproj.CoreCompileInputs.cache
+C:\Development\DesafioTecnico\DesafioTecnico\obj\Debug\net5.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Development\DesafioTecnico\DesafioTecnico\obj\Debug\net5.0\WebAPI.MvcApplicationPartsAssemblyInfo.cache

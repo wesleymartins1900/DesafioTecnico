@@ -28,14 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Development\\DesafioTecnico\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Development\\DesafioTecnico\\Domain\\Domain.csproj"
+              "C:\\Development\\DesafioTecnico\\MSFilmes\\MSFilmes.csproj": {
+                "projectPath": "C:\\Development\\DesafioTecnico\\MSFilmes\\MSFilmes.csproj"
               },
               "C:\\Development\\DesafioTecnico\\Security\\Security.csproj": {
                 "projectPath": "C:\\Development\\DesafioTecnico\\Security\\Security.csproj"
-              },
-              "C:\\Development\\DesafioTecnico\\Services\\Services.csproj": {
-                "projectPath": "C:\\Development\\DesafioTecnico\\Services\\Services.csproj"
               }
             }
           }
@@ -58,6 +55,14 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "Domain-Api-Filmes.DesafioTecnico": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.3.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.8, )"
@@ -73,6 +78,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[6.1.4, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
@@ -93,60 +102,6 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Development\\DesafioTecnico\\Domain\\Domain.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Development\\DesafioTecnico\\Domain\\Domain.csproj",
-        "projectName": "Domain",
-        "projectPath": "C:\\Development\\DesafioTecnico\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\BOTÃO POWER\\.nuget\\packages\\",
-        "outputPath": "C:\\Development\\DesafioTecnico\\Domain\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\BOTÃO POWER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -178,11 +133,7 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {
-              "C:\\Development\\DesafioTecnico\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Development\\DesafioTecnico\\Domain\\Domain.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -243,6 +194,67 @@
         }
       }
     },
+    "C:\\Development\\DesafioTecnico\\MSFilmes\\MSFilmes.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Development\\DesafioTecnico\\MSFilmes\\MSFilmes.csproj",
+        "projectName": "MSFilmes",
+        "projectPath": "C:\\Development\\DesafioTecnico\\MSFilmes\\MSFilmes.csproj",
+        "packagesPath": "C:\\Users\\BOTÃO POWER\\.nuget\\packages\\",
+        "outputPath": "C:\\Development\\DesafioTecnico\\MSFilmes\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\BOTÃO POWER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Development\\DesafioTecnico\\Filmes\\Data.csproj": {
+                "projectPath": "C:\\Development\\DesafioTecnico\\Filmes\\Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Development\\DesafioTecnico\\Security\\Security.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -282,77 +294,6 @@
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[6.11.1, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Development\\DesafioTecnico\\Services\\Services.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Development\\DesafioTecnico\\Services\\Services.csproj",
-        "projectName": "Services",
-        "projectPath": "C:\\Development\\DesafioTecnico\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\BOTÃO POWER\\.nuget\\packages\\",
-        "outputPath": "C:\\Development\\DesafioTecnico\\Services\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\BOTÃO POWER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net5.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
-            "projectReferences": {
-              "C:\\Development\\DesafioTecnico\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Development\\DesafioTecnico\\Domain\\Domain.csproj"
-              },
-              "C:\\Development\\DesafioTecnico\\Filmes\\Data.csproj": {
-                "projectPath": "C:\\Development\\DesafioTecnico\\Filmes\\Data.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[10.1.1, )"
-            },
-            "FluentValidation.AspNetCore": {
-              "target": "Package",
-              "version": "[10.3.0, )"
             }
           },
           "imports": [

@@ -1,138 +1,104 @@
 ﻿using AutoMapper;
-using Data.Entities;
-using DesafioTecnico.Validators;
-using Domain;
+using DomainApiFilmes.DesafioTecnico;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Services;
-using System;
 using System.Threading.Tasks;
+using WebAPI.Exceptions;
+using WebAPI.Filters;
+using WebAPI.Services;
+using WebAPI.Validators;
 
-namespace DesafioTecnico.Controllers
+namespace WebAPI.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
+    [ProducesResponseType(statusCode: 200, Type = typeof(FilmeDto))]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(statusCode: 500, Type = typeof(ErrorResponse))]
     public class FilmeController : ControllerBase
     {
-        private readonly FilmeServices _services;
         private readonly IMapper _mapper;
-        public readonly FilmeValidator _validator;
+        private readonly IFilmeValidator _validator;
+        private readonly IFilmeApiServices _services;
 
-        public FilmeController(FilmeServices services, IMapper mapper, FilmeValidator validator)
+        public FilmeController(IFilmeApiServices filmeApiServices, IMapper mapper, IFilmeValidator validator)
         {
-            _services = services;
             _mapper = mapper;
             _validator = validator;
+            _services = filmeApiServices;
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> BuscarFilmePorId(int id)
         {
-            try
-            {
-                var filme = await _services.ListarFilmeCadastradoPorIdAsync(id);
-                var filmesDto = _mapper.Map<FilmeDto[]>(filme);
+            if (!ModelState.IsValid)
+                return BadRequest();
 
-                if (filmesDto is not null)
-                    return Ok(filmesDto);
+            var filme = await _services.GetByIdAsync(id);
+            var filmesDto = _mapper.Map<FilmeDto[]>(filme);
 
-                return NotFound();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro não catalogado: {ex}");
-            }
+            if (filmesDto is not null)
+                return Ok(filmesDto);
+
+            return NotFound();
         }
 
         [HttpGet]
-        public async Task<IActionResult> BuscarFilmesCadastrados()
+        public async Task<IActionResult> BuscarFilmesCadastrados([FromQuery] FilmeFiltro filtro,
+                                                                 [FromQuery] FilmeOrdem ordem,
+                                                                 [FromQuery] FilmePaginacao paginacao)
         {
-            try
-            {
-                var filmes = await _services.ListarFilmesCadastradosAsync();
-                var filmesDto = _mapper.Map<FilmeDto[]>(filmes);
+            if (!ModelState.IsValid)
+                return BadRequest();
 
-                if (filmesDto is not null)
-                    return Ok(filmesDto);
+            var filmes = await _services.GetAllAsync(filtro, ordem, paginacao);
+            var filmesDto = _mapper.Map<FilmeDto[]>(filmes);
 
-                return NotFound();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro não catalogado: {ex}");
-            }
+            if (filmesDto is not null)
+                return Ok(filmesDto);
+
+            return NotFound();
         }
 
         [HttpPut]
         public async Task<IActionResult> AlterarFilmeCadastrado([FromBody] FilmeDto filmeDto)
         {
-            try
-            {
-                // Processo de validação através de Fluent Validation
-                var resultValidation = await _validator.ValidateAsync(filmeDto);
-                if (!resultValidation.IsValid) return BadRequest();
-
-                var filme = _mapper.Map<Filme>(filmeDto);
-                var result = await _services.AlterarFilmeCadastradoAsync(filme);
-
-                if (result is not null)
-                    return Ok();
-
+            if (!ModelState.IsValid)
                 return BadRequest();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro não catalogado: {ex}");
-            }
+
+            // Processo de validação através de Fluent Validation
+            var resultValidation = await _validator.ValidateAsync(filmeDto);
+            if (!resultValidation.IsValid) return BadRequest();
+
+            await _services.UpdateAsync(filmeDto);
+
+            return Ok();
         }
 
         [HttpPost]
         public async Task<IActionResult> CadastrarNovoFilme([FromBody] FilmeDto filmeDto)
         {
-            try
-            {
-                var resultValidation = await _validator.ValidateAsync(filmeDto);
-                if (!resultValidation.IsValid) return BadRequest();
-
-                var filme = _mapper.Map<Filme>(filmeDto);
-                var result = await _services.CadastrarNovoFilmeAsync(filme);
-
-                if (result is not null)
-                {
-                    // Retorno com status 201 (created) com uri para consulta e objeto
-                    var uri = Url.Action("BuscarFilmesPorId", new { id = result.Id });
-                    return Created(uri, result);
-                }
-
+            if (!ModelState.IsValid)
                 return BadRequest();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro não catalogado: {ex}");
-            }
+
+            var resultValidation = await _validator.ValidateAsync(filmeDto);
+            if (!resultValidation.IsValid) return BadRequest();
+
+            await _services.AddAsync(filmeDto);
+
+            return Ok(filmeDto);
         }
 
         [HttpDelete]
         public async Task<IActionResult> RemoverFilmes([FromBody] params FilmeDto[] filmesDto)
         {
-            try
-            {
-                var filmes = _mapper.Map<Filme[]>(filmesDto);
+            if (!ModelState.IsValid)
+                return BadRequest();
 
-                var result = await _services.RemoverFilmesAsync(filmes);
+            await _services.RemoveAsync(filmesDto);
 
-                filmesDto = _mapper.Map<FilmeDto[]>(filmes);
-
-                if (result is not null)
-                    return Ok(filmesDto);
-
-                return NotFound();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro não catalogado: {ex}");
-            }
+            return Ok(filmesDto);
         }
     }
 }

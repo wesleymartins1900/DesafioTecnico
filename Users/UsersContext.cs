@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Users
 {
@@ -15,7 +14,7 @@ namespace Users
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfiguration<IdentityUser>(new UsersConfiguration());
+            builder.ApplyConfiguration<Usuario>(new UsersConfiguration());
         }
     }
 }

@@ -1,18 +1,17 @@
-﻿using Data.Entities;
-using Domain;
+﻿using DomainApiFilmes.DesafioTecnico;
 using FluentValidation;
-using Services;
+using WebAPI.Utils;
 
-namespace DesafioTecnico.Validators
+namespace WebAPI.Validators
 {
-    public class GeneroValidator : AbstractValidator<GeneroDto>
+    public class GeneroValidator : AbstractValidator<GeneroDto>, IGeneroValidator
     {
         public GeneroValidator()
         {
             ValidarDadosDeGenero();
         }
 
-        private void ValidarDadosDeGenero()
+        public void ValidarDadosDeGenero()
         {
             RuleFor(x => x.Nome)
                 .NotEmpty()

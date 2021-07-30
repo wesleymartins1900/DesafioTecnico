@@ -1,11 +1,10 @@
-﻿using Data.Entities;
-using Domain;
+﻿using DomainApiFilmes.DesafioTecnico;
 using FluentValidation;
-using Services;
+using WebAPI.Utils;
 
-namespace DesafioTecnico.Validators
+namespace WebAPI.Validators
 {
-    public class FilmeValidator : AbstractValidator<FilmeDto>
+    public class FilmeValidator : AbstractValidator<FilmeDto>, IFilmeValidator
     {
         public FilmeValidator()
         {
@@ -13,13 +12,13 @@ namespace DesafioTecnico.Validators
             ValidarDadosDeGenero();
         }
 
-        private void ValidarDadosDeGenero()
+        public void ValidarDadosDeGenero()
         {
             RuleFor(x => x.GeneroDoFilme)
                 .SetValidator(new GeneroValidator());
         }
 
-        private void ValidarDadosDoFilme()
+        public void ValidarDadosDoFilme()
         {
             RuleFor(x => x.Nome)
                 .NotEmpty()

@@ -1,5 +1,3 @@
-using Data.Entities;
-using Data.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,8 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Services;
 using System;
+using WebAPI.Services;
+using WebAPI.Validators;
 
 namespace DesafioTecnico
 {
@@ -26,15 +25,27 @@ namespace DesafioTecnico
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DesafioTecnico", Version = "v1" });
             });
 
+            ConfigureAuthenticationIdentity(services);
+            ConfigureAuthenticationJwt(services);
+
+            ConfigureAutoMapper(services);
+            ConfigureDependencyInjections(services);
+        }
+
+        private void ConfigureAuthenticationIdentity(IServiceCollection services)
+        {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
+        }
+
+        private void ConfigureAuthenticationJwt(IServiceCollection services)
+        {
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = "JwtBearer";
@@ -53,11 +64,24 @@ namespace DesafioTecnico
                     ValidAudience = "Postman"
                 };
             });
+        }
 
+        private void ConfigureAutoMapper(IServiceCollection services)
+        {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        private void ConfigureDependencyInjections(IServiceCollection services)
+        {
+            // Services
+            services.AddTransient<IFilmeApiServices, FilmeApiServices>();
+
+            // Validators
+            services.AddTransient<IFilmeValidator, FilmeValidator>();
+            services.AddTransient<IGeneroValidator, GeneroValidator>();
+            services.AddTransient<ILocacaoValidator, LocacaoValidator>();
+        }
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
